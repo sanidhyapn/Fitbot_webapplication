@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+    <style>
+        
+        html, body {
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url("data:image/jpeg;base64,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");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensure the background stays fixed */
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0); /* Transparent background */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            margin-top: 50px;
+        }
+        h1, label, input, button {
+            color: #fff; /* Default text color */
+            text-shadow: none; /* Remove neon shadow */
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 1.2em;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.5); /* Slightly darker input background */
+            color: #fff; /* White text color in input */
+        }
+        input::placeholder {
+            color: #fff; /* White placeholder text */
+            opacity: 1; /* Ensure the placeholder text is fully opaque */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ffd700; /* Yellow button background */
+            color: #000; /* Black text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ffc107; /* Slightly darker yellow on hover */
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff; /* White result text */
+            text-shadow: none; /* Remove neon shadow from result */
+        }
+        .result.normal {
+            color: green;
+        }
+        .result.underweight {
+            color: orange;
+        }
+        .result.overweight {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" placeholder="Enter height in cm">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" placeholder="Enter weight in kg">
+        <button onclick="calculateBMI()">Calculate</button>
+        <div id="bmiResult" class="result"></div>
+    </div>
+    <script>
+        function calculateBMI() {
+            var height = parseFloat(document.getElementById('height').value);
+            var weight = parseFloat(document.getElementById('weight').value);
+            var resultDiv = document.getElementById('bmiResult');
+
+            if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                resultDiv.textContent = 'Please enter valid height and weight.';
+                resultDiv.className = 'result';
+                return;
+            }
+
+            // Convert height from cm to meters
+            height = height / 100;
+            var bmi = weight / (height * height);
+            var category = '';
+
+            if (bmi < 18.5) {
+                category = 'Underweight';
+                resultDiv.className = 'result underweight';
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = 'Normal weight';
+                resultDiv.className = 'result normal';
+            } else {
+                category = 'Overweight';
+                resultDiv.className = 'result overweight';
+            }
+
+            resultDiv.textContent = 'Your BMI is ' + bmi.toFixed(2) + '. Category: ' + category;
+        }
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

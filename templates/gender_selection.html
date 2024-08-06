@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dietary Plan Selection</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chockpiece:wght@400;700&display=swap">
+    <style>
+        html, body {
+    font-family: 'roboto', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-image: url('https://i.pinimg.com/originals/e8/d8/ee/e8d8ee9edece42916aa5851d7fd7bebd.jpg'); /* Background image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Ensures the background stays fixed during scrolling */
+}
+
+        h1 {
+            color: #fff;
+            margin: 20px 0;
+            font-size: 2.5em;
+        }
+        #plan-selection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Space between items */
+            margin-top: 20px;
+        }
+        .plan-button {
+            padding: 15px 30px; /* Adjusted padding for a longer button */
+            font-size: 16px;
+            background-color: rgba(0, 0, 0, 0.3); /* Transparent white background */
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.5); /* Semi-transparent border */
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            width: 250px; /* Adjusted button width for longer text */
+            margin-bottom: 10px; /* Space between buttons */
+            backdrop-filter: blur(5px); /* Optional: Add blur effect for better visibility */
+        }
+        .plan-button:hover {
+            background-color: rgba(255, 255, 255, 0.5); /* More opaque on hover */
+            border-color: rgba(255, 255, 255, 0.8); /* Change border color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Your Dietary Plan</h1>
+    <br><br>
+    <div id="plan-selection">
+        <button class="plan-button" onclick="navigateTo('plan1.html')">DASH Diet</button>
+        <button class="plan-button" onclick="navigateTo('plan2.html')">Mediterranean Diet</button>
+        <button class="plan-button" onclick="navigateTo('plan3.html')">Keto Meal Plan</button>
+        <button class="plan-button" onclick="navigateTo('plan4.html')">Intermittent Fasting Plan</button>
+    </div>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness and Nutrition Quiz</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+    <style>
+        html, body {
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('https://www.shutterstock.com/image-photo/dark-gym-interior-black-dumbbells-600nw-1500379427.jpg'); /* Update this path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        h1 {
+            color: #333;
+            margin: 20px 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); /* White shadow with some transparency */
+        }
+        #quiz {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+            color: #333;
+            text-align: left;
+            position: relative;
+        }
+        .question {
+            display: none;
+        }
+        .question.active {
+            display: block;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+        .option-bar {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .option-bar.selected {
+            background-color: #2d6a4f;
+            color: #fff;
+        }
+        #nextButton, #submitQuizButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2d6a4f;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        #nextButton:hover, #submitQuizButton:hover {
+            background-color: #1e4d3f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fitness and Nutrition Quiz</h1>
+    <div id="quiz">
+        <!-- Question 1 -->
+        <div class="question" id="question1">
+            <label for="q1">How often do you exercise?</label>
+            <div class="options">
+                <div class="option-bar" onclick="selectOption(this, 'daily')">Daily</div>
+                <div class="option-bar" onclick="selectOption(this, 'few_times_week')">A few times a week</div>
+                <div class="option-bar" onclick="selectOption(this, 'once_week')">Once a week</div>
+                <div class="option-bar" onclick="selectOption(this, 'rarely')">Rarely</div>
+            </div>
+            <button id="nextButton" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <!-- Additional Questions -->
+        <div class="question" id="question2">
+            <label for="q2">What is your primary fitness goal?</label>
+            <div class="options">
+                <div class="option-bar" onclick="selectOption(this, 'weight_loss')">Weight Loss</div>
+                <div class="option-bar" onclick="selectOption(this, 'muscle_gain')">Muscle Gain</div>
+                <div class="option-bar" onclick="selectOption(this, 'endurance')">Endurance</div>
+                <div class="option-bar" onclick="selectOption(this, 'general_health')">General Health</div>
+            </div>
+            <button id="nextButton" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <div class="question" id="question3">
+            <label for="q3">How many hours do you sleep on average?</label>
+            <div class="options">
+                <div class="option-bar" onclick="selectOption(this, 'less_than_5')">Less than 5 hours</div>
+                <div class="option-bar" onclick="selectOption(this, '5_7')">5-7 hours</div>
+                <div class="option-bar" onclick="selectOption(this, '7_9')">7-9 hours</div>
+                <div class="option-bar" onclick="selectOption(this, 'more_than_9')">More than 9 hours</div>
+            </div>
+            <button id="nextButton" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <div class="question" id="question4">
+            <label for="q4">What is your preferred workout time?</label>
+            <div class="options">
+                <div class="option-bar" onclick="selectOption(this, 'morning')">Morning</div>
+                <div class="option-bar" onclick="selectOption(this, 'afternoon')">Afternoon</div>
+                <div class="option-bar" onclick="selectOption(this, 'evening')">Evening</div>
+                <div class="option-bar" onclick="selectOption(this, 'night')">Night</div>
+            </div>
+            <button id="nextButton" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="question" id="question5">
+            <button id="submitQuizButton" onclick="submitQuiz()">Submit Quiz</button>
+        </div>
+    </div>
+    <script>
+        var currentQuestionIndex = 0;
+        var questions = [
+            'question1',
+            'question2',
+            'question3',
+            'question4',
+            'question5'
+        ];
+        var answers = {};
+
+        function showQuestion(index) {
+            var allQuestions = document.querySelectorAll('.question');
+            allQuestions.forEach(q => q.classList.remove('active'));
+            document.getElementById(questions[index]).classList.add('active');
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion(currentQuestionIndex);
+            } else {
+                submitQuiz();
+            }
+        }
+
+        function selectOption(element, value) {
+            var options = element.parentNode.querySelectorAll('.option-bar');
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+
+            // Save the selected answer
+            var questionId = element.parentNode.parentNode.id;
+            answers[questionId] = value;
+        }
+
+        function submitQuiz() {
+            // Redirect to contact.html after submission
+            window.location.href = 'contact.html'; // Replace with the appropriate page
+        }
+
+        showQuestion(currentQuestionIndex); // Initialize the first question
+    </script>
+</body>
+</html>

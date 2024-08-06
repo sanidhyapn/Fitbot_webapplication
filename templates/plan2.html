@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan 1</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chockpiece:wght@400;700&display=swap">
+    <style>
+        html, body {
+            font-family: 'Chockpiece', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('https://t3.ftcdn.net/jpg/06/87/50/82/360_F_687508290_8XzHVOgmHHxYPs9AXVtZ5N5Bo03XICQ5.jpg'); /* Background image URL */
+            background-size: cover; /* Ensures the background image covers the entire viewport */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        h1, p {
+            color: #fff; /* White text color */
+            margin: 20px 0;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em; /* Slightly smaller font size for the paragraph */
+        }
+        #content {
+            margin-top: 20px;
+        }
+        .plan-image {
+            max-width: 90%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Mediterranean Diet</h1>
+    <p>Highlights the consumption of healthy fats (like olive oil), whole grains, fish, fruits, and vegetables, and is associated with numerous health benefits, particularly for heart health.</p>
+    <hr>
+    <div id="content">
+        <img src="{{ url_for('static', filename='images/plan2.jpg') }}" alt="Plan 1" class="plan-image">
+    </div>
+</body>
+</html>

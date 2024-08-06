@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan 1</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chockpiece:wght@400;700&display=swap">
+    <style>
+        html, body {
+            font-family: 'Chockpiece', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('https://as1.ftcdn.net/v2/jpg/02/15/99/44/1000_F_215994403_3Okw9dk1Vc1DU7DCOXFPMbaz2QPg0tJu.jpg'); /* Replace with your background image URL */
+            background-size: cover; /* Ensures the background image covers the entire viewport */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Keeps the background fixed while scrolling */
+        }
+        h1 {
+            color: #fff; /* Adjust text color for contrast */
+            margin: 20px 0;
+            font-size: 2.5em;
+        }
+        p {
+            color: #fff; /* Adjust text color for contrast */
+            font-size: 1.2em;
+        }
+        #content {
+            margin-top: 20px;
+            padding: 0 10px; /* Add padding to avoid edge contact */
+        }
+        .plan-image {
+            max-width: 90%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Intermittent Fasting:</h1>
+    <p> An eating pattern that cycles between periods of fasting and eating, which can promote weight loss and metabolic health.</p>
+    <hr>
+    <div id="content">
+        <img src="{{ url_for('static', filename='images/plan4.jpg') }}" alt="Plan 1" class="plan-image">
+    </div>
+</body>
+</html>
