@@ -10,6 +10,7 @@ Navigate to the project directory in your terminal and install the required Pyth
 
 
 pip install flask beautifulsoup4 aiohttp requests
+
 3. Run the Application
 Open the terminal in Visual Studio Code.
 
