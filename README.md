@@ -21,3 +21,7 @@ Start the application by running:
 
 python app.py
 Your Flask application should now be running. Open your browser and go to http://localhost:5000 to access it.
+
+
+![image](https://github.com/user-attachments/assets/fd446fa0-0968-4b02-a8ca-17cad91afe4c)
+
